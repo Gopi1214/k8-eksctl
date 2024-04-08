@@ -3,7 +3,7 @@ module "ec2-instance" {
   ami                    = data.aws_ami.centos8.id
   name                   = "eksctl-workstation"
   instance_type          = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.allow_eksctl.id]
+  vpc_security_group_ids = [aws_security_group.allow_eksctl_gmd.id]
   subnet_id              = "subnet-01c1c823852d19a68"
   user_data              = file("workstation.sh")
 
@@ -13,8 +13,8 @@ module "ec2-instance" {
   }
 }
 
-resource "aws_security_group" "allow_eksctl" {
-  name        = "allow_eksctl"
+resource "aws_security_group" "allow_eksctl_gmd" {
+  name        = "allow_eksctl_gmd"
   description = "created for eksctl"
 
   ingress {
