@@ -8,6 +8,6 @@ metadata:
 
 managedNodeGroups:
   - name: spot
-    instanceType: m5.large
+    instanceType: t3.medium
     desiredCapacity: 3
     spot: true
